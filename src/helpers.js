@@ -7,7 +7,7 @@ export function hitTemplate(hit) {
       <div class="hit-content">
         <div>
           <div class="hit-name">${hit.name}</div>
-          <div class="hit-description"></div>
+          <div class="hit-description">${hit.tcgplayerProductId}</div>
         </div>
         <div class="hit-power">${hit.power}</div>
       </div>

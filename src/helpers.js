@@ -37,22 +37,30 @@ export function hitTemplate(hit) {
       <div class="hit-content">
         <div class="hit-title">
           <h2 class="hit-name">${name}</h2>
-          <span class="hit-mana">${finalMana}
-          </span>
+
 
           <div class="hit-type">${type_line}</div>
+          <div class="img-container">
+            <img class="hit-image" src="${image_uris.art_crop}" />
+          </div>
            </div>
-        <div class="img-container">
-          <img class="hit-image" src="${image_uris.art_crop}" />
-        </div>
-        <div class="hit-description">${oracle_text}</div>
-        <div class="hit-color">${color_identity}</div>
-        <span class=${hit.power ? 'hit-stats' : 'invisible'}>${hit.power}/${
-    hit.toughness
-  }</span>
+           <div class="hit-rarity">${rarity.charAt(0).toUpperCase() + rarity.slice(1)}          <span class="hit-mana">${mana_cost}
+           </span></div>
+           <div class="hit-text">
+           <div class="hit-description">${oracle_text}</div>
+           <div class=${
+             flavor_text ? 'hit-flavor-text' : 'invisible'
+           }>${flavor_text}</div>
+           <span class=${hit.power ? 'hit-stats' : 'invisible'}>${hit.power}/${
+              hit.toughness
+              }</span>
+           </div>
       </div>
     </div>
   `;
 }
 
 /*        <div class="hit-type">${rarity}</div> */
+
+// <div class="hit-color">${color_identity}</div>
+/*  */

@@ -1,2 +1,12 @@
-body { font-family: sans-serif; padding: 1em; }
-.ais-SearchBox { margin: 1em 0; }
+@font-face {
+  font-family: 'MTG';
+  src: url('../MAGIC.woff') format('woff');
+}
+
+body {
+  font-family: "MTG", Fallback, sans-serif;
+  padding: 1em;
+}
+.ais-SearchBox {
+  margin: 1em 0;
+}

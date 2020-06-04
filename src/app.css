@@ -58,6 +58,12 @@
   margin: 2rem auto;
   text-align: center;
 }
+/* 
+#categories {
+  float: left;
+  width: 350px;
+} */
+
 
 .hit-name {
   flex: 1;
@@ -85,5 +91,33 @@
 }
 
 .hit-image {
-  width: 100%
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
+
+.ais-InstantSearch {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.left-panel {
+  flex: 1;
+}
+
+.right-panel {
+  flex: 4
+}
+
+#categories {
+  height: auto;
+}
+
+
+/* .img-container {
+  height: 200px;
+  width: 415px;
+  overflow: hidden;
+  /* padding-bottom: 30%; */
+/* }; */

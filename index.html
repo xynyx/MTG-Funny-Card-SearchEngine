@@ -17,11 +17,15 @@
 </head>
 
 <body>
-  <h1>Magic The Gathering Card List (Throne of Eldraine)</h1>
   <div class="ais-InstantSearch">
     <div class="left-panel">
-      <h3>Rarity</h3>
-      <div id="rarity"></div>
+      <div id="clear-refinements"></div>
+
+      
+      <div class="facet-container">
+        <h3>Rarity</h3>
+        <div id="rarity"></div>
+      </div>
       <h3>Colours</h3>
       <div id="colors"></div>
       <h3>Type</h3>
@@ -29,14 +33,17 @@
       <h3>Set</h3>
       <div id="set"></div>
     </div>
-  
+    
     <div class="right-panel">
+      <h1>Magic The Gathering - Joke Cards</h1>
       <div id="searchbox"></div>
+      <!-- <div id="pagination"></div> -->
       <div id="hits"></div>
       <div id="pagination"></div>
+
     </div>
   </div>
-
+<!-- 
   <div class="container">
     <div class="search-panel">
       <div class="search-panel__results">
@@ -46,11 +53,13 @@
     <div id="hits"></div>
     <div id="pagination"></div>
     
-  </div>
-
+  </div> -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   <script src="https://cdn.jsdelivr.net/algoliasearch/3.32.0/algoliasearchLite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.5.0"></script>
   <script src="./src/app.js"></script>
+
 </body>
 
 </html>

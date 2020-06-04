@@ -8,8 +8,6 @@ const searchClient = algoliasearch(
 );
 
 const index = searchClient.initIndex('mtg-search');
-// const cards = require('../StandardPrintings.json');
-// const ELDCards = cards[0].ELD.cards;
 
 index.setSettings({
   // Select the attributes you want to search in
@@ -21,9 +19,14 @@ index.setSettings({
     // 'rarity',
   ],
   customRanking: ['asc(name)'],
-  attributesForFaceting: ['colors', 'rarity', 'type_line', 'set_name'],
-  // Set up some attributes to filter results on
-  // attributesForFaceting: ['name', 'colors'],
+  attributesForFaceting: [
+    'colors',
+    'rarity',
+    'type_line',
+    'set_name',
+    'prices.usd',
+  ],
+  hitsPerPage: 12,
 });
 
 // API only allows you to fetch 175 cards at a time - use Promise.all and combine to get all 650 cards
@@ -67,8 +70,6 @@ Promise.all([
   });
 });
 
-// const records = fetchData.then(cards => (cards)).then(card => card)
-
 // .then(cards => {
 //   const combinedCards = cards.flat();
 //   return index.saveObjects(combinedCards, {
@@ -91,6 +92,17 @@ search.addWidgets([
 ]);
 
 search.addWidgets([
+  // instantsearch.widgets.rangeSlider({
+  //   container: '#range-slider',
+  //   attribute: 'prices.usd',
+  // }),
+
+  instantsearch.widgets.clearRefinements({
+    container: '#clear-refinements',
+    templates: {
+      resetLabel: 'Clear Refinements',
+    },
+  }),
   instantsearch.widgets.hits({
     container: '#hits',
     hitsPerPage: 10,
@@ -104,34 +116,22 @@ search.addWidgets([
     container: '#rarity',
     attribute: 'rarity',
     autoHideContainer: false,
-    templates: {
-      header: 'Categories',
-    }
   }),
   instantsearch.widgets.refinementList({
     container: '#colors',
     attribute: 'colors',
     autoHideContainer: false,
-    templates: {
-      header: 'Colors',
-    }
   }),
   instantsearch.widgets.refinementList({
     container: '#type',
     attribute: 'type_line',
     autoHideContainer: false,
-    templates: {
-      header: 'Type',
-    }
   }),
   instantsearch.widgets.refinementList({
     container: '#set',
     attribute: 'set_name',
     autoHideContainer: false,
-    templates: {
-      header: 'Set',
-    }
-  })
+  }),
 ]);
 
 search.start();

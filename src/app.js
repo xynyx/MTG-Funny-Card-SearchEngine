@@ -11,33 +11,20 @@ const index = searchClient.initIndex('mtg-search');
 
 index.setSettings({
   // Select the attributes you want to search in
-  searchableAttributes: [
-    // 'colors',
-    'name',
-    // 'power',
-    // 'type',
-    // 'rarity',
-  ],
+  searchableAttributes: ['name'],
+  // Sort by name
   customRanking: ['asc(name)'],
-  attributesForFaceting: [
-    'colors',
-    'rarity',
-    'type_line',
-    'set_name',
-    'prices.usd',
-  ],
-  hitsPerPage: 12,
+  attributesForFaceting: ['colors', 'rarity', 'type_line', 'set_name'],
 });
 
-// API only allows you to fetch 175 cards at a time - use Promise.all and combine to get all 650 cards
+// API only allows you to fetch 175 cards at a time - use Promise.all and combine to get all 604 cards
 Promise.all([
   fetch(`https://api.scryfall.com/cards/search?q=is:funny`)
     .then(card => {
-      // console.log('card :>> ', card);
+      // Must return json first; data not retrievable immediately
       return card.json();
     })
     .then(body => {
-      // console.log('body :>> ', body);
       return body.data;
     }),
   fetch(
@@ -47,23 +34,28 @@ Promise.all([
       return card.json();
     })
     .then(body => {
-      // console.log('body2 :>> ', body);
       return body.data;
     }),
   fetch(
     `https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&order=name&page=3&q=is%3Afunny&unique=cards`
   )
     .then(card => {
-      // console.log('card2 :>> ', card);
       return card.json();
     })
     .then(body => {
-      // console.log('body2 :>> ', body);
+      return body.data;
+    }),
+  fetch(
+    `https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&order=name&page=4&q=is%3Afunny&unique=cards`
+  )
+    .then(card => {
+      return card.json();
+    })
+    .then(body => {
       return body.data;
     }),
 ]).then(cards => {
   const combinedCards = cards.flat();
-  console.log('combinedCards :>> ', combinedCards);
   index.clearObjects();
   return index.saveObjects(combinedCards, {
     autoGenerateObjectIDIfNotExist: true,
@@ -98,6 +90,7 @@ search.addWidgets([
       },
     },
   }),
+  // Filters
   instantsearch.widgets.refinementList({
     container: '#rarity',
     attribute: 'rarity',
@@ -112,14 +105,15 @@ search.addWidgets([
     container: '#type',
     attribute: 'type_line',
     autoHideContainer: false,
-    sortBy: ["name:asc"]
+    sortBy: ['name:asc'],
   }),
   instantsearch.widgets.refinementList({
     container: '#set',
     attribute: 'set_name',
     autoHideContainer: false,
-    sortBy: ["name:asc"]
+    sortBy: ['name:asc'],
   }),
+  // Stats (page loading speed / how many items)
   instantsearch.widgets.stats({
     container: '#stats',
     templates: {
@@ -131,6 +125,7 @@ search.addWidgets([
       `,
     },
   }),
+  // Adjust hits/page
   instantsearch.widgets.hitsPerPage({
     container: '#hits-per-page',
     items: [

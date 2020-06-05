@@ -60,16 +60,10 @@
   text-align: center;
 }
 #searchbox {
-  /* box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1); */
   outline: none;
   margin: 2rem auto;
   width: 50%;
 }
-
-/* #searchbox:focus {
-  box-shadow: inset 0 2px 6px rgba(0, 100, 220, 0.15);
-  border-color: rgba(0, 100, 220, 0.6);
-} */
 
 #pagination {
   margin: 2rem auto;
@@ -104,11 +98,6 @@
   font-size: 2em;
   color: rgb(33, 36, 61);
 }
-/* 
-#categories {
-  float: left;
-  width: 350px;
-} */
 
 .hit-name {
   flex: 1;
@@ -119,17 +108,12 @@
   margin: 1em 0;
 }
 
-.white-moon-grey {
-  background-image: linear-gradient(180deg, #fff, #f5f5fa);
-}
-
 .hit-description {
   margin-top: 4%;
 }
 
 .hit-mana {
   float: right;
-  /* margin-top: 0.3em; */
   font-size: 2em;
 }
 
@@ -137,7 +121,6 @@
   display: flex;
   height: 550px;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 .hit-text {
@@ -146,15 +129,7 @@
   justify-content: space-between;
   height: 100%;
   border-top: 2px solid rgba(0, 0, 0, 0.349);
-  /* font-family: "MTG"; */
-  /* font-size: 1.1em */
 }
-
-/* .hit-flavor-text {
-
-  display: flex;
-  flex-direction: column;
-}  */
 
 .invisible {
   display: none;
@@ -190,7 +165,6 @@
   background-color: whitesmoke;
   box-shadow: 1px 3px 10px 1px;
   font-size: 1.5em;
-  /* justify-content: space-between; */
 }
 
 .right-panel {
@@ -200,22 +174,11 @@
 .right-panel > h1 {
   font-size: 2.5em;
 }
-/* 
-.right-panel > img {
-  background: white;
-} */
 
 #hits-per-page {
   text-align: center;
   font-size: 1.3em;
-  /* margin-top: 1em; */
 }
-
-/* 
-#categories {
-  height: auto;
-  flex: 1
-} */
 
 h1 {
   text-align: center;
@@ -233,7 +196,7 @@ h1 {
   box-shadow: 3px 3px 3px 2px;
   font-family: 'Source Sans Pro', sans-serif;
   background: whitesmoke;
-  box-shadow: 1px 1px 2px 1px inset;
+  box-shadow: 0 0 5px 1px inset;
 }
 
 .ais-RefinementList-labelText,
@@ -254,10 +217,3 @@ h1 {
   width: 35%;
   display: block;
 }
-
-/* .img-container {
-  height: 200px;
-  width: 415px;
-  overflow: hidden;
-  /* padding-bottom: 30%; */
-/* }; */

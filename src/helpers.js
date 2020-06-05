@@ -1,6 +1,5 @@
 export function hitTemplate(hit) {
   const {
-    color_identity,
     flavor_text,
     image_uris,
     mana_cost,
@@ -10,8 +9,7 @@ export function hitTemplate(hit) {
     type_line,
   } = hit;
 
-  // console.log('mana_cost.split("") :>> ', oracle_text.split(/(?<={.})/g));
-
+  // Hash table to convert special mana values/icons 
   const converter = {
     '{1}': '[',
     '{2}': '\\',
@@ -30,15 +28,13 @@ export function hitTemplate(hit) {
     '{W}': '@',
   };
 
+  // Converts into icons by finding all instances of {.} and splitting there; includes {}
   const convertedIcons = text => {
     return text
       .split(/(?<={.})/g)
       .map(letter => {
-        // console.log('letter :>> ', letter);
+        // If the split portion does not include {.}, then it is not a special character
         if (!letter.includes('{')) return letter;
-        console.log('letter :>> ', letter);
-
-        console.log('converter[letter]', converter[letter])
         return (letter = converter[letter]);
       })
       .join('');
@@ -53,22 +49,22 @@ export function hitTemplate(hit) {
           <div class="img-container">
             <img class="hit-image" src="${image_uris.art_crop}" />
           </div>
-           </div>
-           <div class="hit-rarity">${rarity.charAt(0).toUpperCase() +
-             rarity.slice(1)}
-                <span class="hit-mana">${convertedIcons(mana_cost)}</span>
-           </div>
-           <div class="hit-text">
-           <div class=${
-             oracle_text ? 'hit-description' : 'invisible'
-           }>${oracle_text}</div>
+        </div>
+        <div class="hit-rarity">${rarity.charAt(0).toUpperCase() +
+          rarity.slice(1)}
+          <span class="hit-mana">${convertedIcons(mana_cost)}</span>
+        </div>
+        <div class="hit-text">
+          <div class=${
+            oracle_text ? 'hit-description' : 'invisible'
+          }>${oracle_text}</div>
            <div class=${
              flavor_text ? 'hit-flavor-text' : 'invisible'
            }>${flavor_text}</div>
            <span class=${hit.power ? 'hit-stats' : 'invisible'}>${hit.power}/${
     hit.toughness
   }</span>
-           </div>
+        </div>
       </div>
     </div>
   `;

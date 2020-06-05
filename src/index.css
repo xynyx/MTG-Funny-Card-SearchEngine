@@ -6,7 +6,8 @@
 body {
   font-family: 'MTG', Fallback, sans-serif;
   padding: 1em;
-  background-color: #acb3ebbe;
+  background-color: #8e98e9be;
+  /* background-color: #acb3ebbe; */
   background-image: url('https://www.transparenttextures.com/patterns/diagmonds.png');
   color: #21243d;
 }

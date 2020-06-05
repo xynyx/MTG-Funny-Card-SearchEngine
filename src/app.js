@@ -1,6 +1,6 @@
 const searchClient = algoliasearch(
-  ALGOLIA_KEY,
-  ALGOLIA_SECRET
+  'HXQNTP2IKE',
+  '947938c04243eedbd06b7667a81fb100'
 );
 
 const index = searchClient.initIndex('mtg-search');

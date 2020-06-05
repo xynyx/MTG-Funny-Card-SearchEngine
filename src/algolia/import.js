@@ -1,5 +1,3 @@
-
-import algoliasearch from './algoliasearch';
 const index = searchClient.initIndex('mtg-search');
 const searchClient = algoliasearch(
   'HXQNTP2IKE',

@@ -1,4 +1,3 @@
-import algoliasearch from './algoliasearch';
 import { hitTemplate } from './helpers';
 
 const searchClient = algoliasearch(

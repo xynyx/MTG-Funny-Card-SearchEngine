@@ -77,13 +77,13 @@ function hitTemplate(hit) {
   `;
 }
 
-index.setSettings({
-  // Select the attributes you want to search in
-  searchableAttributes: ['name'],
-  // Sort by name
-  customRanking: ['asc(name)'],
-  attributesForFaceting: ['colors', 'rarity', 'type_line', 'set_name'],
-});
+// index.setSettings({
+//   // Select the attributes you want to search in
+//   searchableAttributes: ['name'],
+//   // Sort by name
+//   customRanking: ['asc(name)'],
+//   attributesForFaceting: ['colors', 'rarity', 'type_line', 'set_name'],
+// });
 
 const search = instantsearch({
   indexName: 'mtg-search',

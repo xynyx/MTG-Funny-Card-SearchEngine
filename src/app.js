@@ -1,4 +1,3 @@
-/* global algoliasearch instantsearch */
 import algoliasearch from 'algoliasearch';
 import { hitTemplate } from './helpers';
 
@@ -15,51 +14,6 @@ index.setSettings({
   // Sort by name
   customRanking: ['asc(name)'],
   attributesForFaceting: ['colors', 'rarity', 'type_line', 'set_name'],
-});
-
-// API only allows you to fetch 175 cards at a time - use Promise.all and combine to get all 604 cards
-Promise.all([
-  fetch(`https://api.scryfall.com/cards/search?q=is:funny`)
-    .then(card => {
-      // Must return json first; data not retrievable immediately
-      return card.json();
-    })
-    .then(body => {
-      return body.data;
-    }),
-  fetch(
-    `https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&order=name&page=2&q=is%3Afunny&unique=cards`
-  )
-    .then(card => {
-      return card.json();
-    })
-    .then(body => {
-      return body.data;
-    }),
-  fetch(
-    `https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&order=name&page=3&q=is%3Afunny&unique=cards`
-  )
-    .then(card => {
-      return card.json();
-    })
-    .then(body => {
-      return body.data;
-    }),
-  fetch(
-    `https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&order=name&page=4&q=is%3Afunny&unique=cards`
-  )
-    .then(card => {
-      return card.json();
-    })
-    .then(body => {
-      return body.data;
-    }),
-]).then(cards => {
-  const combinedCards = cards.flat();
-  index.clearObjects();
-  return index.saveObjects(combinedCards, {
-    autoGenerateObjectIDIfNotExist: true,
-  });
 });
 
 const search = instantsearch({

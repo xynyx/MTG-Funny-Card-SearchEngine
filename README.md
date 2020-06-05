@@ -5,10 +5,9 @@
 - Search for every funny MTG card in existence!
 - Filter by type, set, color, and rarity
 
-## Screenshots
+## Screenshot
 
-![]()
-![]()
+![Page](https://github.com/xynyx/MTG-Funny-Card-SearchEngine/blob/master/screenshots/app.png)
 
 ## Extra
 - For Mintbean Hackathon

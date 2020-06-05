@@ -1,4 +1,4 @@
-export function hitTemplate(hit) {
+export default function hitTemplate(hit) {
   const {
     flavor_text,
     image_uris,

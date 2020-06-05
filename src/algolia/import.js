@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const index = searchClient.initIndex('mtg-search');
 const searchClient = algoliasearch(
   process.env.ALGOLIA_KEY,

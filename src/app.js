@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const searchClient = algoliasearch(
   process.env.ALGOLIA_KEY,
   process.env.ALGOLIA_SECRET

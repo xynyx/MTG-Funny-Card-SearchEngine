@@ -217,3 +217,44 @@ h1 {
   width: 35%;
   display: block;
 }
+
+@media screen and (max-width: 1640px) {
+  .ais-Hits-item,
+  .ais-InfiniteHits-item,
+  .ais-InfiniteResults-item,
+  .ais-Results-item {
+    width: calc(33.3% - 1rem);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ais-Hits-item,
+  .ais-InfiniteHits-item,
+  .ais-InfiniteResults-item,
+  .ais-Results-item {
+    width: calc(50% - 1rem);
+  }
+
+  .left-panel {
+    flex: 1;
+  }
+  .right-panel {
+    flex: 2.5;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ais-Hits-item,
+  .ais-InfiniteHits-item,
+  .ais-InfiniteResults-item,
+  .ais-Results-item {
+    width: calc(100% - 1rem);
+  }
+
+  .left-panel {
+    flex: 2;
+  }
+  .right-panel {
+    flex: 1;
+  }
+}

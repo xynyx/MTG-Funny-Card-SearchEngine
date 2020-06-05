@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({path: __dirname + "/.env"})
 
 const searchClient = algoliasearch(
   process.env.ALGOLIA_KEY,

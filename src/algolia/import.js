@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({path: __dirname + "/.env"})
 
 const index = searchClient.initIndex('mtg-search');
 const searchClient = algoliasearch(

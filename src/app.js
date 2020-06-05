@@ -1,6 +1,6 @@
 const searchClient = algoliasearch(
-  'HXQNTP2IKE',
-  '947938c04243eedbd06b7667a81fb100'
+  process.env.ALGOLIA_KEY,
+  process.env.ALGOLIA_SECRET
 );
 
 const index = searchClient.initIndex('mtg-search');
@@ -16,7 +16,7 @@ function hitTemplate(hit) {
     type_line,
   } = hit;
 
-  // Hash table to convert special mana values/icons 
+  // Hash table to convert special mana values -> icons 
   const converter = {
     '{1}': '[',
     '{2}': '\\',
@@ -40,7 +40,7 @@ function hitTemplate(hit) {
     return text
       .split(/(?<={.})/g)
       .map(letter => {
-        // If the split portion does not include {.}, then it is not a special character
+        // If the split portion does not include {.}, then it is not a special character; 
         if (!letter.includes('{')) return letter;
         return (letter = converter[letter]);
       })

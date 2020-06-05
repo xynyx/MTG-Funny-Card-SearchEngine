@@ -161,6 +161,7 @@
   height: 100%;
   padding: 1%;
   border: 2px solid grey;
+  border-radius: 10px;
   margin-right: 1.2%;
   background-color: whitesmoke;
   box-shadow: 1px 3px 10px 1px;
@@ -197,6 +198,7 @@ h1 {
   font-family: 'Source Sans Pro', sans-serif;
   background: whitesmoke;
   box-shadow: 0 0 5px 1px inset;
+  border-radius: 10px;
 }
 
 .ais-RefinementList-labelText,

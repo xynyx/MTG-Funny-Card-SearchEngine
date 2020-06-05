@@ -1,7 +1,7 @@
 const index = searchClient.initIndex('mtg-search');
 const searchClient = algoliasearch(
-  'HXQNTP2IKE',
-  '947938c04243eedbd06b7667a81fb100'
+  process.env.ALGOLIA_KEY,
+  process.env.ALGOLIA_SECRET
 );
 
 // API only allows you to fetch 175 cards at a time - use Promise.all and combine to get all 604 cards

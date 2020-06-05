@@ -20,7 +20,6 @@
     "parcel-bundler": "1.12.4",
     "prettier": "1.19.1"
   },
-  "homepage": "https://xynyx.github.io/MTG-Funny-Card-SearchEngine/",
   "dependencies": {
     "algoliasearch": "^4.2.0"
   }

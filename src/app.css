@@ -53,6 +53,7 @@
 .ais-ClearRefinements-button,
 .ais-ClearRefinements-button--disabled {
   font-size: 1.5em;
+  background-color: blue;
 }
 
 #clear-refinements {
@@ -78,11 +79,30 @@
 .ais-Pagination-link {
   background-color: whitesmoke;
   font-size: 2em;
+  color: rgb(33, 36, 61);
   font-family: 'Source Sans Pro';
 }
 .ais-Hits--empty {
+  display: none;
+}
+
+.ais-HitsPerPage-select {
+  font-size: 1.8em;
+  padding: 0.3em;
+  font-family: 'MTG';
+  width: 16%;
+  color: rgb(33, 36, 61);
+}
+
+#stats {
   text-align: center;
-  font-size: 3em;
+  margin-bottom: 1.5em;
+}
+
+.ais-Stats-text {
+  text-align: center;
+  font-size: 2em;
+  color: rgb(33, 36, 61);
 }
 /* 
 #categories {
@@ -93,6 +113,14 @@
 .hit-name {
   flex: 1;
   display: inline;
+}
+
+.ais-SearchBox {
+  margin: 1em 0;
+}
+
+.white-moon-grey {
+  background-image: linear-gradient(180deg, #fff, #f5f5fa);
 }
 
 .hit-description {
@@ -168,6 +196,21 @@
 .right-panel {
   flex: 4.5;
 }
+
+.right-panel > h1 {
+  font-size: 2.5em;
+}
+/* 
+.right-panel > img {
+  background: white;
+} */
+
+#hits-per-page {
+  text-align: center;
+  font-size: 1.3em;
+  /* margin-top: 1em; */
+}
+
 /* 
 #categories {
   height: auto;
@@ -186,14 +229,11 @@ h1 {
   font-family: 'MTG';
 }
 
-body {
-  background-color: slategrey;
-}
-
 .ais-Hits-item {
-  background-color: whitesmoke;
   box-shadow: 3px 3px 3px 2px;
   font-family: 'Source Sans Pro', sans-serif;
+  background: whitesmoke;
+  box-shadow: 1px 1px 2px 1px inset;
 }
 
 .ais-RefinementList-labelText,
@@ -211,7 +251,7 @@ body {
 .right-panel > img {
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 35%;
   display: block;
 }
 

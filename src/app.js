@@ -70,12 +70,6 @@ Promise.all([
   });
 });
 
-// .then(cards => {
-//   const combinedCards = cards.flat();
-//   return index.saveObjects(combinedCards, {
-//     autoGenerateObjectIDIfNotExist: true,
-//   });
-
 const search = instantsearch({
   indexName: 'mtg-search',
   searchClient,
@@ -89,18 +83,10 @@ search.addWidgets([
   instantsearch.widgets.pagination({
     container: '#pagination',
   }),
-]);
-
-search.addWidgets([
-  // instantsearch.widgets.rangeSlider({
-  //   container: '#range-slider',
-  //   attribute: 'prices.usd',
-  // }),
-
   instantsearch.widgets.clearRefinements({
     container: '#clear-refinements',
     templates: {
-      resetLabel: 'Clear Refinements',
+      resetLabel: 'Clear Filters',
     },
   }),
   instantsearch.widgets.hits({
@@ -126,13 +112,33 @@ search.addWidgets([
     container: '#type',
     attribute: 'type_line',
     autoHideContainer: false,
+    sortBy: ["name:asc"]
   }),
   instantsearch.widgets.refinementList({
     container: '#set',
     attribute: 'set_name',
     autoHideContainer: false,
+    sortBy: ["name:asc"]
+  }),
+  instantsearch.widgets.stats({
+    container: '#stats',
+    templates: {
+      text: `
+        {{#hasNoResults}}No results{{/hasNoResults}}
+        {{#hasOneResult}}1 result{{/hasOneResult}}
+        {{#hasManyResults}}{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}} results{{/hasManyResults}}
+        found in {{processingTimeMS}}ms
+      `,
+    },
+  }),
+  instantsearch.widgets.hitsPerPage({
+    container: '#hits-per-page',
+    items: [
+      { label: '12 cards per page', value: 12, default: true },
+      { label: '24 cards per page', value: 24 },
+      { label: '36 cards per page', value: 36 },
+    ],
   }),
 ]);
-
 
 search.start();

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "parcel index.html --https://xynyx.github.io/MTG-Funny-Card-SearchEngine/",
+    "start": "parcel index.html --/MTG-Funny-Card-SearchEngine/",
     "build": "parcel build index.html",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"

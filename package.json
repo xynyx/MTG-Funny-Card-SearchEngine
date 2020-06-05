@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "parcel index.html --/MTG-Funny-Card-SearchEngine/",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html ----/MTG-Funny-Card-SearchEngine/",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },

@@ -11,4 +11,4 @@
 
 ## Extra
 - For Mintbean Hackathon (build an app in <4 hours)
-- Made with Algolia (and a love for MTG)
+- Made with Algolia

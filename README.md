@@ -10,5 +10,5 @@
 ![Page](https://github.com/xynyx/MTG-Funny-Card-SearchEngine/blob/master/screenshots/app.png)
 
 ## Extra
-- For Mintbean Hackathon
+- For Mintbean Hackathon (build an app in <4 hours)
 - Made with Algolia (and a love for MTG)
